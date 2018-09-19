@@ -38,6 +38,7 @@ export default class CheckBox extends Component {
 		unCheckedComponent: PropTypes.element,
 		onClick: PropTypes.func.isRequired,
 		isChecked: PropTypes.bool.isRequired,
+		checkBoxSize:PropTypes.number,
 		checkBoxColor: PropTypes.string,
 		checkedCheckBoxColor: PropTypes.string,
 		uncheckedCheckBoxColor: PropTypes.string,
@@ -45,6 +46,7 @@ export default class CheckBox extends Component {
 		index:PropTypes.number
 	}
 	static defaultProps = {
+		checkBoxSize: 20,
 		isChecked: false,
 		leftTextStyle: {},
 		rightTextStyle: {}
@@ -104,7 +106,7 @@ export default class CheckBox extends Component {
 		var source;
 		source = this.state.isChecked ? 'checkbox-marked' : 'checkbox-blank-outline';
 		return (
-			<MaterialCommunityIcons name={source} size={20} color={this._getTintColor()} />
+			<MaterialCommunityIcons name={source} size={this.props.checkBoxSize} color={this._getTintColor()} />
 		);
 	}
 	componentWillReceiveProps(nextProps) {
